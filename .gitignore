@@ -1,0 +1,28 @@
+# 工具箱生成的文件（用户数据）
+*.log
+*.tmp
+*.backup
+
+# 用户配置（不应该提交）
+config/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 测试文件
+test/
+tests/
+
+# 下载的 rootfs（大文件）
+*.tar.gz
+*.tar.xz
+*.tar.bz2
+*.img

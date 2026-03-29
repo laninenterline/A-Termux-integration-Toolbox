@@ -126,7 +126,7 @@ ATT 为 Termux 用户提供了强大的 Linux 发行版部署能力：
 ### 📚 文档
 
 - [详细教程](docs/TUTORIAL.md) - 功能详解和使用指南
-- [常见问题](docs/FAQ.md) - FAQ 和故障排除（计划中）
+- [常见问题](docs/FAQ.md) - FAQ 和故障排除
 
 ### 🤝 贡献
 
@@ -260,7 +260,7 @@ ATT provides powerful Linux distribution deployment for Termux users:
 ### 📚 Documentation
 
 - [Tutorial](docs/TUTORIAL.md) - Detailed guide and usage
-- [FAQ](docs/FAQ.md) - FAQ and troubleshooting (planned)
+- [FAQ](docs/FAQ.md) - FAQ and troubleshooting
 
 ### 🤝 Contributing
 

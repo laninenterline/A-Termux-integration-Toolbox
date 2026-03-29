@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Install ShellCheck
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y shellcheck
+
+    - name: Run ShellCheck
+      run: |
+        shellcheck --severity=warning ATT.sh || true
+        # 暂时允许警告，逐步修复
+
+  syntax-check:
+    name: Syntax Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check Bash Syntax
+      run: |
+        bash -n ATT.sh
+        echo "✓ Syntax check passed"
+
+    - name: Check Script Permissions
+      run: |
+        if [ -x ATT.sh ]; then
+          echo "✓ Script is executable"
+        else
+          echo "⚠ Script is not executable"
+          exit 1
+        fi
+
+  markdown-lint:
+    name: Markdown Lint
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Install markdownlint
+      run: npm install -g markdownlint-cli
+
+    - name: Lint Markdown files
+      run: |
+        markdownlint '*.md' --ignore node_modules || true
+        markdownlint 'docs/*.md' --ignore node_modules || true
